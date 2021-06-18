@@ -1,4 +1,27 @@
 
+* {
+    border-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+html {
+    scroll-behavior: smooth;
+    font-size: 100%;
+  }
+
+body {
+    color: #252934;
+    font-size: 1em;
+    font-weight: 300;
+    line-height: 1.5;
+    font-family: "europa", sans-serif;
+  }
+
+.secondary-text {
+    color: #8c52ff;
+}
+
 .rotate:hover
 {
         -webkit-transform: rotateZ(-30deg);
