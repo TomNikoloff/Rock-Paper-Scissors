@@ -4,14 +4,15 @@ function rpsGame(yourChoice) {
     humanChoice = yourChoice.id;
 
     botChoice = numberToChoice(randToRpsInt());
-    console.log('Computer Choice:', botChoice);
 
     results = decideWinner(humanChoice, botChoice);
-    console.log(results);
 
     message = finalMessage(results);
-    console.log(message);
     rpsFrontEnd(yourChoice.id, botChoice, message);
+    
+    roundCounterFunc();
+
+    //resetGame();
 }
 
 function randToRpsInt() {
@@ -64,5 +65,16 @@ function rpsFrontEnd(humanImageChoice, botImageChoice, finalMessage) {
     humanDiv.innerHTML = "<img src='" + imagesDatabase[humanImageChoice] + "'>";
     botDiv.innerHTML = "<img src='" + imagesDatabase[botImageChoice] + "'>";
     messageDiv.innerHTML = "<h1 style='color: " + finalMessage['color'] + "; font-size: 60px; padding-top: 50%; '>" + finalMessage['message'] + "</h1>";
+
+}
+
+function roundCounterFunc() {
+    let roundCounter = document.getElementById('roundCounter');
+    let count = 1;
+    count++;
+    roundCounter.innerHTML = 'Round ' + count;
+}
+
+function resetGame() {
 
 }
