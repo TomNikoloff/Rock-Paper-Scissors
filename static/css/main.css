@@ -1,0 +1,17 @@
+
+.rotate:hover
+{
+        -webkit-transform: rotateZ(-30deg);
+        -ms-transform: rotateZ(-30deg);
+        transform: rotateZ(-30deg);
+}
+
+.rpsImgDiv:hover .rpsImg {
+    opacity: 0.3;
+    transition: .5s ease;
+}
+
+.rpsImgDiv:hover .projOverlay {
+    opacity: 1;
+    transition: .5s ease;
+}
