@@ -16,7 +16,7 @@
     <div class="container mt-5">
         <h1 class="text-center pb-5 primary-text">Rock, Paper, Scissors</h1>
         <h2 class="text-center p-3">Round 1</h2>
-        <div class="row">
+        <div class="row" id="rpsMainDiv">
             <div class="col text-center">
                 <div>
                     <h5>Win</h5>
@@ -25,7 +25,7 @@
                     <h3 class="secondary-text">40</h3> 
                 </div>
                 <div class="rpsImgDiv">
-                    <img class="rpsImg" src="static/images/rock.jpg">
+                    <img id="rock" class="rpsImg" src="static/images/rock.jpg" onclick="rpsGame(this)">
                 </div>
             </div>
             <div class="col text-center">
@@ -36,7 +36,7 @@
                     <h3 class="secondary-text">2</h3> 
                 </div>
                 <div class="rpsImgDiv">
-                    <img class="rpsImg" src="static/images/paper.jpg">
+                    <img id="paper" class="rpsImg" src="static/images/paper.jpg" onclick="rpsGame(this)">
                 </div>
             </div>
             <div class="col text-center">
@@ -47,7 +47,7 @@
                     <h3 class="secondary-text">23</h3> 
                 </div>
                 <div class="rpsImgDiv">
-                    <img class="rpsImg" src="static/images/scissors.jpg">
+                    <img id="scissors" class="rpsImg" src="static/images/scissors.jpg" onclick="rpsGame(this)">
                 </div>
             </div>
         </div>
