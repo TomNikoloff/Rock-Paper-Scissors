@@ -12,6 +12,8 @@ function rpsGame(yourChoice) {
     
     roundCounterFunc();
 
+    winDrawBotWin(results);
+
     //resetGame();
 }
 
@@ -35,6 +37,8 @@ function decideWinner(yourChoice, computerChoice) {
 
     return [yourScore, computerScore];
 }
+
+//Score is returned as [1, 0] or [0.5, 0.5] etc
 
 function finalMessage([yourScore, computerScore]) {
     if (yourScore === 0) {
@@ -73,6 +77,25 @@ function roundCounterFunc() {
     let count = 1;
     count++;
     roundCounter.innerHTML = 'Round ' + count;
+}
+
+function winDrawBotWin([yourScore, computerScore]) {
+    let humanWinCounter = document.getElementById('humanWinCounter');
+    let humanCounter = 0;
+    let drawCounter = document.getElementById('drawCounter');
+    let draw = 0;
+    let botWinCounter = document.getElementById('botWinCounter');
+    let botCounter = 0;
+    if (yourScore === 1) {
+        humanCounter++;
+        humanWinCounter.innerHTML = humanCounter;
+    } else if (yourScore === 0.5) {
+        draw++;
+        drawCounter.innerHTML = draw;
+    } else {
+        botCounter++;
+        botWinCounter.innerHTML = botCounter;
+    }
 }
 
 function resetGame() {
