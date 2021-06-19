@@ -1,3 +1,4 @@
+let resetButton;
 
 function rpsGame(yourChoice) {
     let humanChoice, botChoice;
@@ -14,7 +15,8 @@ function rpsGame(yourChoice) {
 
     winDrawBotWin(results);
 
-    //resetGame();
+    let resetButton = document.getElementById('resetButton');
+    //resetButton.onclick = resetGame();
 }
 
 function randToRpsInt() {
@@ -64,12 +66,16 @@ function rpsFrontEnd(humanImageChoice, botImageChoice, finalMessage) {
     let humanDiv = document.getElementById('humanDiv');
     let botDiv = document.getElementById('botDiv');
     let messageDiv = document.getElementById('messageDiv');
-
+    let resetDiv = document.getElementById('resetButtonDiv');
+    resetButton = document.createElement('button');
 
     humanDiv.innerHTML = "<img src='" + imagesDatabase[humanImageChoice] + "'>";
     botDiv.innerHTML = "<img src='" + imagesDatabase[botImageChoice] + "'>";
     messageDiv.innerHTML = "<h1 style='color: " + finalMessage['color'] + "; font-size: 60px; padding-top: 50%; '>" + finalMessage['message'] + "</h1>";
-
+    resetButton.innerHTML = "Replay";
+    resetButton.className = "btn btn-secondary resetButton";
+    resetDiv.appendChild(resetButton);
+    resetButton.setAttribute('id', 'resetButton');
 }
 
 function roundCounterFunc() {
@@ -99,6 +105,33 @@ function winDrawBotWin([yourScore, computerScore]) {
 }
 
 function resetGame() {
-    //Create button and give boostrap class
-    //Add click event listerner
+    console.log('testtassdf');
+    let firstDiv = document.getElementById('humanDiv');
+    let secondDiv = document.getElementById('botDiv');
+    let thirdDiv = document.getElementById('messageDiv');
+
+    firstDiv.innerHTML = "";
+    secondDiv.innerHTML = "";
+    resetButton.remove();
+    thirdDiv.innerHTML = "";
+    
+    let rock = document.createElement('img');
+    let paper = document.createElement('img');
+    let scissors = document.createElement('img');
+
+    rock.src ="static/images/rock.jpg";
+    paper.src ="static/images/paper.jpg";
+    scissors.src ="static/images/scissors.jpg";
+
+    rock.className = "rpsImg";
+    paper.className = "rpsImg";
+    scissors.className = "rpsImg";
+
+    rock.setAttribute('id', 'rock');
+    paper.setAttribute('id', 'paper');
+    scissors.setAttribute('id', 'scissors');
+
+    firstDiv.appendChild(rock);
+    secondDiv.appendChild(paper);
+    thirdDiv.appendChild(scissors);
 }
