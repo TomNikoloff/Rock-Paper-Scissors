@@ -14,7 +14,6 @@ function rpsGame(yourChoice) {
     winDrawBotWin(results);
 
     let resetButton = document.getElementById('resetButton');
-    //resetButton.onclick = resetGame();
 }
 
 function randToRpsInt() {
