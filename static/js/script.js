@@ -12,8 +12,6 @@ function rpsGame(yourChoice) {
     roundCounterFunc();
 
     winDrawBotWin(results);
-
-    let resetButton = document.getElementById('resetButton');
 }
 
 function randToRpsInt() {
@@ -81,7 +79,7 @@ function rpsFrontEnd(humanImageChoice, botImageChoice, finalMessage) {
     botChoiceDiv.innerHTML = "<img src='" + imagesDatabase[botImageChoice] + "'>";
     messageResultDiv.innerHTML = "<h1 style='color: " + finalMessage['color'] + "; font-size: 60px; padding-top: 50%; '>" + finalMessage['message'] + "</h1>";
 
-    document.getElementById('resetButton').style.display = "inline";
+    document.getElementById('resetButtonDiv').style.display = "inline";
 }
 
 function roundCounterFunc() {
@@ -113,7 +111,7 @@ function resetGame() {
     document.getElementById('humanChoiceDiv').remove();
     document.getElementById('messageResultDiv').remove();
     document.getElementById('botChoiceDiv').remove();
-    resetButton.remove();
+    document.getElementById('resetButtonDiv').style.display = "none";
     
     document.getElementById('rock').style.display = "inline";
     document.getElementById('paper').style.display = "inline";
