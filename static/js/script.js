@@ -1,3 +1,8 @@
+let count = 0;
+let humanCounter = 0;
+let draw = 0;
+let botCounter = 0;
+
 function rpsGame(yourChoice) {
     let humanChoice, botChoice;
     humanChoice = yourChoice.id;
@@ -90,11 +95,9 @@ function roundCounterFunc() {
 
 function winDrawBotWin([yourScore, computerScore]) {
     let humanWinCounter = document.getElementById('humanWinCounter');
-    let humanCounter = 0;
     let drawCounter = document.getElementById('drawCounter');
-    let draw = 0;
     let botWinCounter = document.getElementById('botWinCounter');
-    let botCounter = 0;
+    
     if (yourScore === 1) {
         humanCounter++;
         humanWinCounter.innerHTML = humanCounter;
