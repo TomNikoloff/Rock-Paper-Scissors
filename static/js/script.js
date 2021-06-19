@@ -99,5 +99,6 @@ function winDrawBotWin([yourScore, computerScore]) {
 }
 
 function resetGame() {
-
+    //Create button and give boostrap class
+    //Add click event listerner
 }
