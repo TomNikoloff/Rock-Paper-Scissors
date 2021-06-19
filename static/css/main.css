@@ -42,3 +42,7 @@ body {
 .resetButton {
     background-color: #252934;
 }
+
+#resetButton {
+  display: none;
+}

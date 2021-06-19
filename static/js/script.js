@@ -1,5 +1,3 @@
-let resetButton;
-
 function rpsGame(yourChoice) {
     let humanChoice, botChoice;
     humanChoice = yourChoice.id;
@@ -59,28 +57,36 @@ function rpsFrontEnd(humanImageChoice, botImageChoice, finalMessage) {
         'scissors': document.getElementById('scissors').src
     }
 
-    document.getElementById('rock').remove();
-    document.getElementById('paper').remove();
-    document.getElementById('scissors').remove();
+    document.getElementById('rock').style.display = "none";
+    document.getElementById('paper').style.display = "none";
+    document.getElementById('scissors').style.display = "none";
 
     let humanDiv = document.getElementById('humanDiv');
     let botDiv = document.getElementById('botDiv');
     let messageDiv = document.getElementById('messageDiv');
-    let resetDiv = document.getElementById('resetButtonDiv');
-    resetButton = document.createElement('button');
 
-    humanDiv.innerHTML = "<img src='" + imagesDatabase[humanImageChoice] + "'>";
-    botDiv.innerHTML = "<img src='" + imagesDatabase[botImageChoice] + "'>";
-    messageDiv.innerHTML = "<h1 style='color: " + finalMessage['color'] + "; font-size: 60px; padding-top: 50%; '>" + finalMessage['message'] + "</h1>";
-    resetButton.innerHTML = "Replay";
-    resetButton.className = "btn btn-secondary resetButton";
-    resetDiv.appendChild(resetButton);
-    resetButton.setAttribute('id', 'resetButton');
+    //Created three new sub divs below to be removed when game is reset. Leaving the orignals to be redisplyed on reset.
+    let humanChoiceDiv = document.createElement('div');
+    let messageResultDiv = document.createElement('div');
+    let botChoiceDiv = document.createElement('div');
+
+    humanChoiceDiv.setAttribute('id', 'humanChoiceDiv');
+    messageResultDiv.setAttribute('id', 'messageResultDiv');
+    botChoiceDiv.setAttribute('id', 'botChoiceDiv');
+
+    humanDiv.appendChild(humanChoiceDiv);
+    messageDiv.appendChild(messageResultDiv);
+    botDiv.appendChild(botChoiceDiv);
+
+    humanChoiceDiv.innerHTML = "<img src='" + imagesDatabase[humanImageChoice] + "'>";
+    botChoiceDiv.innerHTML = "<img src='" + imagesDatabase[botImageChoice] + "'>";
+    messageResultDiv.innerHTML = "<h1 style='color: " + finalMessage['color'] + "; font-size: 60px; padding-top: 50%; '>" + finalMessage['message'] + "</h1>";
+
+    document.getElementById('resetButton').style.display = "inline";
 }
 
 function roundCounterFunc() {
     let roundCounter = document.getElementById('roundCounter');
-    let count = 1;
     count++;
     roundCounter.innerHTML = 'Round ' + count;
 }
@@ -105,33 +111,12 @@ function winDrawBotWin([yourScore, computerScore]) {
 }
 
 function resetGame() {
-    console.log('testtassdf');
-    let firstDiv = document.getElementById('humanDiv');
-    let secondDiv = document.getElementById('botDiv');
-    let thirdDiv = document.getElementById('messageDiv');
-
-    firstDiv.innerHTML = "";
-    secondDiv.innerHTML = "";
+    document.getElementById('humanChoiceDiv').remove();
+    document.getElementById('messageResultDiv').remove();
+    document.getElementById('botChoiceDiv').remove();
     resetButton.remove();
-    thirdDiv.innerHTML = "";
     
-    let rock = document.createElement('img');
-    let paper = document.createElement('img');
-    let scissors = document.createElement('img');
-
-    rock.src ="static/images/rock.jpg";
-    paper.src ="static/images/paper.jpg";
-    scissors.src ="static/images/scissors.jpg";
-
-    rock.className = "rpsImg";
-    paper.className = "rpsImg";
-    scissors.className = "rpsImg";
-
-    rock.setAttribute('id', 'rock');
-    paper.setAttribute('id', 'paper');
-    scissors.setAttribute('id', 'scissors');
-
-    firstDiv.appendChild(rock);
-    secondDiv.appendChild(paper);
-    thirdDiv.appendChild(scissors);
+    document.getElementById('rock').style.display = "inline";
+    document.getElementById('paper').style.display = "inline";
+    document.getElementById('scissors').style.display = "inline";
 }
