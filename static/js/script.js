@@ -1,4 +1,4 @@
-let count = 0;
+let count = 1;
 let humanCounter = 0;
 let draw = 0;
 let botCounter = 0;
@@ -14,8 +14,6 @@ function rpsGame(yourChoice) {
     message = finalMessage(results);
     rpsFrontEnd(yourChoice.id, botChoice, message);
     
-    roundCounterFunc();
-
     winDrawBotWin(results);
 }
 
@@ -119,4 +117,5 @@ function resetGame() {
     document.getElementById('rock').style.display = "inline";
     document.getElementById('paper').style.display = "inline";
     document.getElementById('scissors').style.display = "inline";
+    roundCounterFunc()
 }
